@@ -2,6 +2,7 @@ package com.devsuperior.dscommerce.entities;
 
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.devsuperior.dscommerce.entities.enums.OrderStatus;
@@ -97,8 +98,8 @@ public class Order {
 		return items;
 	}
 
-	public void setItems(Set<OrderItem> items) {
-		this.items = items;
+	public List<Product> getProducts() {
+		return items.stream().map(OrderItem::getProduct).toList();
 	}
 
 }
